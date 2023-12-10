@@ -27,7 +27,7 @@ Then this block is used to start our program.
 ## Continuous integration testing
 We are using GitHub Action to help us test our package functions. The CI configuration file is stored in .github/workflow/
 
-## Functions
+## Functions in start(for initialization)
 
 ### `clients_initialization()`
 
@@ -56,13 +56,6 @@ We are using GitHub Action to help us test our package functions. The CI configu
 ### `main()`
 
 - **Description:** The main function that runs the AZYY Bank Management System. It prompts the user to choose a role (new user, existing client, admin, quit) and handles the corresponding actions.
-
-### `personal_invest(c_new)`
-
-- **Description:** Manages personal investments for a specific client.
-
-- **Parameters:**
-  - `c_new`: Client object.
 
 ### `test()`
 
