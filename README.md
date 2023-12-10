@@ -24,6 +24,9 @@ start.main()
 ```
 Then this block is used to start our program.
 
+## Continuous integration testing
+We are using GitHub Action to help us test our package functions. The CI configuration file is stored in .github/workflow/
+
 ## Functions
 
 ### `clients_initialization()`
@@ -65,14 +68,6 @@ Then this block is used to start our program.
 
 - **Description:** A test function (currently commented out) that demonstrates the usage of the `admin_login()` function.
 
-### `show_all_investment(mortgage_dict, zcb_dict, gov_dict)`
-
-- **Description:** Displays details of all available investments.
-
-- **Parameters:**
-  - `mortgage_dict`: Dictionary containing mortgage investments.
-  - `zcb_dict`: Dictionary containing zero coupon bond investments.
-  - `gov_dict`: Dictionary containing government bond investments.
 
 ## Usage
 
