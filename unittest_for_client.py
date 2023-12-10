@@ -38,6 +38,8 @@ class TestClient(unittest.TestCase):
         self.assertEqual(self.client1._balance, 1300.0)
         self.assertEqual(self.client2._balance, 500.0)
 
+        
+
     def test__information(self):
         info = self.client1.show_information()
         self.assertEqual(info[0], "Alice")
