@@ -67,8 +67,11 @@ inv_dict=investment_initialization()
 def main():
     
     print("Welcome to AZYY Bank")
-    role = int(input("Plz choose your role:\n1. I'm new to open account,2. Existing client,3. Admin,4. Quit\n"))
-
+    try:
+        role = int(input("Plz choose your role:\n1. I'm new to open account,2. Existing client,3. Admin,4. Quit\n"))
+    except ValueError:
+        print("Please write a valid number")
+        main()
     if role == 1:
         c_new = new_user_registration()
         clients_dict[c_new.name] = c_new
@@ -78,12 +81,20 @@ def main():
         
         client_current = existing_user_login(clients_dict)
         if client_current is not None:
-            operationNumber = int(input("plz enter your operation number:\n 1.save money 2.withdraw money 3.check personal information 4. transfer 5.personal investment\n"))
+            try :
+                operationNumber = int(input("plz enter your operation number:\n 1.save money 2.withdraw money 3.check personal information 4. transfer 5.personal investment\n"))
+            except ValueError:
+                print("Please write a valid number")
+                main()
             if operationNumber == 1:
                 money_amount = int(input("plz enter amount to save\n"))
                 client_current.save_money(money_amount)
             elif operationNumber == 2:
-                money_amount = int(input("plz enter amount to withdraw\n"))
+                try :
+                    money_amount = int(input("plz enter amount to withdraw\n"))
+                except ValueError:
+                    print("Please write a valid number")
+                    main()
                 client_current.withdraw_money(money_amount)
             elif operationNumber == 3:
                 information = client_current.show_information()

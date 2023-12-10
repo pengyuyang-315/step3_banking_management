@@ -28,10 +28,12 @@ class admin:
         Prints:
         - Client details including name, email, phone number, creation date, and balance.
         """
+        print("This is the information of",cl.name)
         information = cl.show_information()
         columns = ["name","email","PhoneNumber","created_date","balance"]
         for info, column in zip(information, columns):
             print(f"{column}: {info}")
+        print("End")
         return information
 
     # 1: password 2: phoneNumber 3. email

@@ -30,12 +30,14 @@ class TestAdmin(unittest.TestCase):
 
     def test_edit_client_password(self):
         print("test_edit_client_password")
+        print("start:")
         self.admin1.edit_client_detail(self.client1,self.operationNumber1,self.new_one)
         self.assertEqual(self.client1._password, 1234)
         self.admin1.edit_client_detail(self.client1,self.operationNumber2,self.new_one)
         self.assertEqual(self.client1.phoneNumber, 1234)
         self.admin1.edit_client_detail(self.client1,self.operationNumber3,self.new_one)
         self.assertEqual(self.client1.email, 1234)
+        print("end")
 
     def test_show_client_detail(self):
         # Test the show_client_detail method of the admin class
