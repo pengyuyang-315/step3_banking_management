@@ -27,5 +27,4 @@ jobs:
 
     - name: Run tests
       run: |
-        python -m unittest unittest_for_admin.py
-        python -m unittest unittest_for_client.py
+        python -m unittest testsuite.py
