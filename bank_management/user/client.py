@@ -105,6 +105,7 @@ def new_user_registration():
     name = input("Plz input your name: ")
     phone = input("Plz input your phone number: ")
     initial_balance = float(input("Plz save your money: "))
+    
     email = input("Plz input your email: ")
     password = int(input("plz input your password: "))
 
@@ -127,8 +128,10 @@ def existing_user_login(clients_dict):
     # existing_user_login
     client_name = input("plz enter your name:\n")
     client_current = clients_dict.get(client_name)
+
     if client_current is not None:
         password = int(input("plz enter your password\n"))
+        #password = int(input("plz enter your password\n"))
         if password != client_current.get_password():
             print("wrong password")
             existing_user_login()
