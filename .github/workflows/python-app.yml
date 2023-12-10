@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - yy
   pull_request:
     branches:
       - main
+      - yy
 
 jobs:
   test:
