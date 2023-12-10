@@ -7,6 +7,7 @@ from bank_management.investment.investment import government_bond
 
 
 class Test_investment(unittest.TestCase):
+    
     def setUp(self):
         self.invst=investment(0.05,2)
         self.mort1=mortgage(0.05,5,10,2000)
