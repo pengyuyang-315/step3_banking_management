@@ -30,3 +30,14 @@ jobs:
     - name: Run tests
       run: |
         python -m unittest testsuite.py
+        
+    - name: Set Environment Variables
+      id: stamp
+      run: |
+        echo "COMMIT_HASH=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_ENV
+        echo "BRANCH_NAME=${{ github.ref }}" >> $GITHUB_ENV
+        echo "BUILD_STAMP=${COMMIT_HASH}-${BRANCH_NAME}" >> $GITHUB_ENV
+
+    - name: Display Build Stamp
+      run: |
+        echo "Build Stamp: ${{ env.BUILD_STAMP }}"
