@@ -1,5 +1,8 @@
-# Banking-Management
-project for 533
+# Banking-Management ![example workflow](https://github.com/pengyuyang-315/step3_banking_management/actions/workflows/python-app.yml/badge.svg)
+Project for 533
+
+## Developers:
+Alan Zhang && Yuyang Peng
 
 ## Overview
 The AZYY Bank Management System is a Python package designed to simulate a simple banking system with user and admin functionalities. It includes features such as user registration, client and admin management, investment handling, and more.
