@@ -29,6 +29,7 @@ jobs:
 
     - name: Run tests
       run: |
+        cd tests
         python -m unittest testsuite.py
         
     - name: Set Environment Variables
