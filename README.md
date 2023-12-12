@@ -13,7 +13,7 @@ The AZYY Bank Management System is a Python package designed to simulate a simpl
 
 The AZYY Bank Management System is built with several functions to manage user and admin interactions, as well as investment handling. Here, we provide details about key functions in the system.
 
-## How to test?
+## How to test/start?
 Go to test.ipynb which is isolated from the requierd package "bank_management".
 Then run this file.
 
@@ -28,12 +28,15 @@ start.main()
 Then this block is used to start our program.
 
 ## Continuous integration testing
-We are using GitHub Action to help us test our package functions. The CI configuration file is stored in .github/workflow/, the screenshot of 75% coverage is attatched.
+We are using GitHub Action to help us test our package functions. The CI configuration file is stored in .github/workflow/, and the screenshot of 75% coverage is attatched.
 
 ## Things to notice about test files required in step 1
 Before run the test file in subpackage investment, go to the 7th line manage_investment.py and delete a dot
 into this "from investment import investment,mortgage,zero_coupon_bond,government_bond"
 But when running test.ipynb or start.py, add the dot back.
+
+## Successfully distributed
+[Pypi Address](https://pypi.org/project/bank-management/)
 
 ## Functions in start(for initialization)
 
