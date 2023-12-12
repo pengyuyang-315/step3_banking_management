@@ -26,6 +26,26 @@ from bank_management.investment.manage_investment import mortgage_initialization
 from bank_management.investment.manage_investment import zcb_initialization
 from bank_management.investment.manage_investment import gov_initialization
 
+#user-defined exception for investment:
+class not_an_option(Exception):
+    def __init__(self):
+        print("not an option")
+class not_an_investment_type(Exception):
+    def __init__(self):
+        print("not an investment type")
+def check_options(opt):
+    if opt not in (1,2,3,4,5):
+        raise not_an_option
+    else:
+        print("valid option")
+def check_types(opt):
+    if opt not in (1,2,3):
+        raise not_an_investment_type
+    else:
+        print("valid type")
+
+
+
 def clients_initialization():
     # initialize clients
     client1 = client("Billy","billy@gmail.com",123456,10000,123456)
@@ -120,6 +140,7 @@ def main():
                 personal_invest(client_current)
             else:
                 print("Invalid number")
+            
         main()
     elif role == 3:
         admin_login(admins_dict,clients_dict)
@@ -132,7 +153,17 @@ def main():
 
 
 def personal_invest(c_new):
-    operation_inv = int(input("plz enter your operation number:\n 1.show your investment 2.show all investment avaliable 3.buy investment 4.recommend investment 5.check investment details \n"))
+    while True:
+        try:
+            operation_inv = int(input("plz enter your operation number:\n 1.show your investment 2.show all investment avaliable 3.buy investment 4.recommend investment 5.check investment details \n"))
+            check_options(operation_inv)
+            break  # Break the loop if input is valid
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+        except not_an_option:
+            print("Please provide a valid number from the options.")
+    
+    
     if operation_inv==1:
         if inv_dict.get(c_new.name) is not None:
             print("Investment you have: ")
@@ -148,9 +179,27 @@ def personal_invest(c_new):
     elif operation_inv==3:
         if inv_dict.get(c_new.name) is None:
             inv_dict[c_new.name]=[]
+        while True:
+            try:
+                buy_option=int(input("Which investment do you want to buy? 1.mortgage 2.zero coupon bond 3.government bond\n"))
+                check_types(buy_option)
+                break  # Break the loop if input is valid
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+            except not_an_investment_type:
+                print("Please provide a valid investment type.")
+
+        while True:
+            try:
+                inside_option=int(input("Which number do you want to buy?(for example if you want to buy mortgage 1, please type 1:\n------Please check carefully all the investment option before you type:"))
+                check_types(inside_option)
+                break  # Break the loop if input is valid
+            except ValueError:
+                print("Invalid input. Please enter a number.")
             
-        buy_option=int(input("Which investment do you want to buy? 1.mortgage 2.zero coupon bond 3.government bond\n"))
-        inside_option=int(input("Which number do you want to buy?"))
+
+        
+        
         if(buy_option==1):
             
             get_inv=mortgage_dict.get(inside_option)
@@ -181,12 +230,43 @@ def personal_invest(c_new):
                 print("Not enough balance")
     elif operation_inv==4:
         risk=int(input("Please give your risk preference"))
-        rate=int(input("Please give your rate preference"))
-        type=int(input("Please give me the type of investment you want to buy. 1.mortgage 2.zcb 3.gov"))
+
+        
+        try:
+            rate=int(input("Please give your rate preference(in int)"))
+                
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            
+        
+        while True:
+            try:
+                type=int(input("Please give me the type of investment you want to buy. 1.mortgage 2.zcb 3.gov"))
+                check_types(type)
+                break  # Break the loop if input is valid
+            except not_an_investment_type:
+                print("Please provide a valid number from the options.")
+            except :
+                print("Please enter again")
+
+
+    
+
+        
         recommendation_bond(risk,rate,type,mortgage_dict,zcb_dict,gov_dict)
 
     elif operation_inv==5:
-        type=int(input("Please give me the type of investment you want to buy. 1.mortgage 2.zcb 3.gov"))
+        while True:
+            try:
+                type=int(input("Please give me the type of investment you want to buy. 1.mortgage 2.zcb 3.gov"))
+                check_types(type)
+                break  # Break the loop if input is valid
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+            except not_an_investment_type:
+                print("Invalid input. Please enter a number.")
+
+        
         if type==1:
             use_dict=mortgage_dict
             choice_operation=int(input("which mortgage do you want to check, please enter a number"))
@@ -214,6 +294,7 @@ def personal_invest(c_new):
             
             elif type_operation==2:
                 use_dict[choice_operation].show_details()
+    
 
 
 
