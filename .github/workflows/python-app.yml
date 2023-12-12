@@ -29,8 +29,8 @@ jobs:
 
     - name: Run tests
       run: |
-        cd tests
-        python -m unittest testsuite.py
+        
+        python -m unittest tests/testsuite.py
         
     - name: Set Environment Variables
       id: stamp
