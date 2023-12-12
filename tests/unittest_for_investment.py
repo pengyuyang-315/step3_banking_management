@@ -1,3 +1,10 @@
+import sys
+import os 
+folder_name = "src"
+current_directory = os.getcwd()
+folder_name = os.path.join(current_directory,folder_name)
+sys.path.append(folder_name)
+
 import unittest
 from datetime import datetime
 from bank_management.investment.investment import investment
