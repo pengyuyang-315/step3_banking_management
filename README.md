@@ -28,7 +28,7 @@ start.main()
 Then this block is used to start our program.
 
 ## Continuous integration testing
-We are using GitHub Action to help us test our package functions. The CI configuration file is stored in .github/workflow/
+We are using GitHub Action to help us test our package functions. The CI configuration file is stored in .github/workflow/, the screenshot of 75% coverage is attatched.
 
 ## Things to notice about test files required in step 1
 Before run the test file in subpackage investment, go to the 7th line manage_investment.py and delete a dot
@@ -101,7 +101,7 @@ Sample data for clients, admins, and investments is pre-initialized in the code.
 
 This project is licensed under the [MIT License](LICENSE).
 
-![Logo](screeen_coverage.png)
+
 
 
 
