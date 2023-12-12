@@ -4,10 +4,10 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import unittest
-from unittest_for_admin import TestAdmin
-from unittest_for_client import TestClient
-from unittest_for_investment import Test_investment as ti1
-from unittest_for_manage_inv import Test_investment as ti2
+from tests.unittest_for_admin import TestAdmin
+from tests.unittest_for_client import TestClient
+from tests.unittest_for_investment import Test_investment as ti1
+from tests.unittest_for_manage_inv import Test_investment as ti2
 def my_suite():
     suite = unittest.TestSuite()
     result = unittest.TestResult()
