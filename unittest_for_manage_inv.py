@@ -4,7 +4,7 @@ from bank_management.investment.investment import investment
 from bank_management.investment.investment import mortgage
 from bank_management.investment.investment import zero_coupon_bond
 from bank_management.investment.investment import government_bond
-from bank_management.investment.manage_investment import edit_rate,edit_risk,show_all_investment,recommendation_bond,mortgage_initialization,zcb_initialization
+from bank_management.investment.manage_investment import edit_rate,edit_risk,show_all_investment,recommendation_bond,mortgage_initialization,zcb_initialization,gov_initialization
 
 
 
@@ -25,6 +25,7 @@ class Test_investment(unittest.TestCase):
         self.gov4=government_bond(0.05,10,2000,10,1)
         self.mort_dict=mortgage_initialization()
         self.zcb_dict=zcb_initialization()
+        self.gov_dict=gov_initialization()
     def tearDown(self):
         print("tear down class")
 
@@ -42,7 +43,11 @@ class Test_investment(unittest.TestCase):
         self.assertEqual(pow((1+self.zcb_dict[2].rate),self.zcb_dict[2].n)*self.zcb_dict[2].pv,self.zcb_dict[2].calculate_fv())
         self.assertEqual(self.zcb_dict[1].rate,0.03)
         self.assertEqual(self.zcb_dict[2].rate,0.06)
-        
+
+    def test_gov_initialization(self):
+        self.assertEqual(self.gov_dict[1].pv*self.gov_dict[1].rate,self.gov_dict[1].calculate_coupon())
+        self.assertEqual(self.gov_dict[1].pv,2000)
+        self.assertEqual(self.gov_dict[2].rate,0.05)     
         
    
         
